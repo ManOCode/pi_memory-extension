@@ -1,6 +1,6 @@
 import { 
   IMemoryBehavior, 
-  IMemoryStore, 
+  IFilesystemMemory, 
   MemoryMetadata, 
   MemoryResult, 
   ForgetCriteria, 
@@ -13,7 +13,7 @@ import {
 
 export class MemoryManager implements IMemoryBehavior {
 
-  constructor(private store: IMemoryStore) {}
+  constructor(private store: IFilesystemMemory) {}
 
   private serializeMetadata(metadata: MemoryMetadata): string {
     const lines = ["---"];

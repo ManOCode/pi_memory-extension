@@ -1,9 +1,9 @@
 import * as fs from "fs/promises";
 import * as path from "path";
 import * as os from "os";
-import { IMemoryStore } from "../domain/types.js";
+import { IFilesystemMemory } from "../domain/types.js";
 
-export class FileSystemStoreMemory implements IMemoryStore {
+export class FileSystemMemory implements IFilesystemMemory {
   
   private readonly memoryRoot = path.join(os.homedir(), ".pi-extensions", "memory");
 

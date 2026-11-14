@@ -56,7 +56,7 @@ export interface TraversedKnowledge {
   }[];
 }
 
-export interface IMemoryStore {
+export interface IFilesystemMemory {
   save(id: string, data: string): Promise<void>;
   retrieve(id: string): Promise<string | null>;
   delete(id: string): Promise<void>;

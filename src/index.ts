@@ -3,13 +3,13 @@ import { registerMemoryTools } from "./tool/tool-memory.js";
 import { registerIndexTools } from "./tool/tool-index.js";
 import { registerGraphTools } from "./tool/tool-graph.js";
 import { MemoryManager } from "./application/memory-manager.js";
-import { FileSystemStoreMemory } from "./infrastructure/fs-memory.js";
+import { FileSystemMemory } from "./infrastructure/fs-memory.js";
 
 export default function (pi: ExtensionAPI) {
   console.log("Pi Memory Extension loaded");
   
   // Composition Root
-  const store = new FileSystemStoreMemory();
+  const store = new FileSystemMemory();
   const manager = new MemoryManager(store);
 
   registerMemoryTools(pi, manager);
