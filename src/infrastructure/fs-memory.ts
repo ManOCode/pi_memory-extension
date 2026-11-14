@@ -1,7 +1,7 @@
 import * as fs from "fs/promises";
 import * as path from "path";
 import * as os from "os";
-import { IMemoryStore } from "../abstraction/types.js";
+import { IMemoryStore } from "../domain/types.js";
 
 export class FileSystemStoreMemory implements IMemoryStore {
   

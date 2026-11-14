@@ -1,6 +1,6 @@
 import { type ExtensionAPI } from "@earendil-works/pi-coding-agent";
-import { PiTool } from "../abstraction/tool.js";
-import { IMemoryBehavior, MemoryPriority } from "../abstraction/types.js";
+import { PiTool } from "../domain/tool.js";
+import { IMemoryBehavior, MemoryPriority } from "../domain/types.js";
 
 class StoreMemory extends PiTool {
   name = "store-memory";

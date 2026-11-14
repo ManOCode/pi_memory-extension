@@ -1,6 +1,6 @@
 import { type ExtensionAPI } from "@earendil-works/pi-coding-agent";
-import { PiTool } from "../abstraction/tool.js";
-import { IMemoryBehavior } from "../abstraction/types.js";
+import { PiTool } from "../domain/tool.js";
+import { IMemoryBehavior } from "../domain/types.js";
 
 class GenerateIndex extends PiTool {
   name = "generate-index";

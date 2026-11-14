@@ -1,8 +1,8 @@
 import { type ExtensionAPI } from "@earendil-works/pi-coding-agent";
-import { registerMemoryTools } from "./tools/tool-memory.js";
-import { registerIndexTools } from "./tools/tool-index.js";
-import { registerGraphTools } from "./tools/tool-graph.js";
-import { MemoryManager } from "./behaviour/memory-manager.js";
+import { registerMemoryTools } from "./tool/tool-memory.js";
+import { registerIndexTools } from "./tool/tool-index.js";
+import { registerGraphTools } from "./tool/tool-graph.js";
+import { MemoryManager } from "./application/memory-manager.js";
 import { FileSystemStoreMemory } from "./infrastructure/fs-memory.js";
 
 export default function (pi: ExtensionAPI) {

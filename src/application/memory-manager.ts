@@ -9,7 +9,7 @@ import {
   MemoryEntry,
   MemoryPriority,
   TraversedKnowledge
-} from "../abstraction/types.js";
+} from "../domain/types.js";
 
 export class MemoryManager implements IMemoryBehavior {
 

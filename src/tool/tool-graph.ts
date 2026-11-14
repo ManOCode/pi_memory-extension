@@ -1,6 +1,6 @@
 import { type ExtensionAPI } from "@earendil-works/pi-coding-agent";
-import { PiTool } from "../abstraction/tool.js";
-import { IMemoryBehavior, TraversedKnowledge } from "../abstraction/types.js";
+import { PiTool } from "../domain/tool.js";
+import { IMemoryBehavior, TraversedKnowledge } from "../domain/types.js";
 
 class TraverseKnowledge extends PiTool {
   name = "traverse-knowledge";
