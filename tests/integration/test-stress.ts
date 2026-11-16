@@ -1,11 +1,11 @@
-import { FileSystemStoreMemory } from "../../dist/infrastructure/fs-memory.js";
-import { MemoryManager } from "../../dist/behaviour/memory-manager.js";
+import { FileSystemMemory } from "../../dist/infrastructure/fs-memory.js";
+import { MemoryManager } from "../../dist/application/memory-manager.js";
 import assert from "assert";
 
 async function runStressTest() {
   console.log("🚀 Starting Memory Extension Stress Test...\n");
 
-  const store = new FileSystemStoreMemory();
+  const store = new FileSystemMemory();
   
   // Cleanup previous runs
   const ids = await store.listIdentifiers();

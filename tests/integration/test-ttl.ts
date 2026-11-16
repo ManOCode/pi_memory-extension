@@ -1,11 +1,11 @@
-import { MemoryManager } from '../../dist/behaviour/memory-manager.js';
-import { FileSystemStoreMemory } from '../../dist/infrastructure/fs-memory.js';
-import { MemoryPriority } from '../../dist/abstraction/types.js';
+import { MemoryManager } from '../../dist/application/memory-manager.js';
+import { FileSystemMemory } from '../../dist/infrastructure/fs-memory.js';
+import { MemoryPriority } from '../../dist/domain/types.js';
 import assert from 'assert';
 
 async function runTest() {
   console.log("🚀 Starting Temporal Decay Test Suite...");
-  const store = new FileSystemStoreMemory();
+  const store = new FileSystemMemory();
   const manager = new MemoryManager(store);
 
   try {

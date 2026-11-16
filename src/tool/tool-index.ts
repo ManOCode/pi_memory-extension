@@ -1,8 +1,7 @@
-import { type ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { PiTool } from "../domain/tool.js";
 import { IMemoryBehavior } from "../domain/types.js";
 
-class GenerateIndex extends PiTool {
+export class GenerateIndex extends PiTool {
   name = "generate-index";
   label = "Generate Index";
   description = "Generate a high-level index of existing memory files.";
@@ -23,7 +22,7 @@ class GenerateIndex extends PiTool {
   }
 }
 
-class SearchIndex extends PiTool {
+export class SearchIndex extends PiTool {
   name = "search-index";
   label = "Search Index";
   description = "Search through the memory index to find a specific target or topic.";
@@ -61,25 +60,4 @@ class SearchIndex extends PiTool {
       throw new Error(`Search failed: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
-}
-
-export function registerIndexTools(pi: ExtensionAPI, manager: IMemoryBehavior) {
-  const generateIndex = new GenerateIndex(manager);
-  const searchIndex = new SearchIndex(manager);
-
-  pi.registerTool({
-    name: generateIndex.name,
-    label: generateIndex.label,
-    description: generateIndex.description,
-    parameters: generateIndex.parameters,
-    execute: (id: string, args: any) => generateIndex.execute(id, args)
-  });
-
-  pi.registerTool({
-    name: searchIndex.name,
-    label: searchIndex.label,
-    description: searchIndex.description,
-    parameters: searchIndex.parameters,
-    execute: (id: string, args: any) => searchIndex.execute(id, args)
-  });
 }
