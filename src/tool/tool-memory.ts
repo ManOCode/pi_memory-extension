@@ -1,8 +1,7 @@
-import { type ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { PiTool } from "../domain/tool.js";
 import { IMemoryBehavior, MemoryPriority } from "../domain/types.js";
 
-class StoreMemory extends PiTool {
+export class StoreMemory extends PiTool {
   name = "store-memory";
   label = "Store Memory";
   description = "Store or update information in the knowledge base. Use 'append' for new facts and 'replace' to correct existing errors.";
@@ -53,8 +52,7 @@ class StoreMemory extends PiTool {
   }
 }
 
-
-class ForgetMemory extends PiTool {
+export class ForgetMemory extends PiTool {
   name = "forget-memory";
   label = "Forget Memory";
   description = "Remove information from memory. WARNING: Use query or tags with caution as they can result in mass deletion of multiple memories.";
@@ -99,7 +97,7 @@ class ForgetMemory extends PiTool {
   }
 }
 
-class PurgeMemories extends PiTool {
+export class PurgeMemories extends PiTool {
   name = "purge-memories";
   label = "Purge Expired Memories";
   description = "Cleanses the memory by permanently deleting all transient memories that have passed their expiration date.";
@@ -121,34 +119,4 @@ class PurgeMemories extends PiTool {
       throw new Error(`Purge failed: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
-}
-
-export function registerMemoryTools(pi: ExtensionAPI, manager: IMemoryBehavior) {
-  const storeMemory = new StoreMemory(manager);
-  const forgetMemory = new ForgetMemory(manager);
-  const purgeMemories = new PurgeMemories(manager);
-
-  pi.registerTool({
-    name: storeMemory.name,
-    label: storeMemory.label,
-    description: storeMemory.description,
-    parameters: storeMemory.parameters,
-    execute: (id: string, args: any) => storeMemory.execute(id, args)
-  });
-
-  pi.registerTool({
-    name: forgetMemory.name,
-    label: forgetMemory.label,
-    description: forgetMemory.description,
-    parameters: forgetMemory.parameters,
-    execute: (id: string, args: any) => forgetMemory.execute(id, args)
-  });
-
-  pi.registerTool({
-    name: purgeMemories.name,
-    label: purgeMemories.label,
-    description: purgeMemories.description,
-    parameters: purgeMemories.parameters,
-    execute: (id: string, args: any) => purgeMemories.execute(id, args)
-  });
 }

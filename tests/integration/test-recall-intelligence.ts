@@ -1,11 +1,11 @@
-import { FileSystemStoreMemory } from "../../dist/infrastructure/fs-memory.js";
-import { MemoryManager } from "../../dist/behaviour/memory-manager.js";
+import { FileSystemMemory } from "../../dist/infrastructure/fs-memory.js";
+import { MemoryManager } from "../../dist/application/memory-manager.js";
 import assert from "assert";
 
 async function runTests() {
   console.log("🚀 Starting Recall Intelligence Test Suite...\n");
 
-  const store = new FileSystemStoreMemory();
+  const store = new FileSystemMemory();
   // Clear existing test memories to avoid deduplication interference
   const ids = await store.listIdentifiers();
   for (const id of ids) {

@@ -1,8 +1,7 @@
-import { type ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { PiTool } from "../domain/tool.js";
-import { IMemoryBehavior, TraversedKnowledge } from "../domain/types.js";
+import { IMemoryBehavior } from "../domain/types.js";
 
-class TraverseKnowledge extends PiTool {
+export class TraverseKnowledge extends PiTool {
   name = "traverse-knowledge";
   label = "Traverse Knowledge Graph";
   description = "Explore the web of memories by following related links from a starting point. Useful for discovering how concepts are connected.";
@@ -49,7 +48,7 @@ class TraverseKnowledge extends PiTool {
   }
 }
 
-class VisualizeKnowledge extends PiTool {
+export class VisualizeKnowledge extends PiTool {
   name = "visualize-knowledge";
   label = "Visualize Knowledge Map";
   description = "Generate a visual Mermaid.js graph of all memories and their interconnections. Helps identify knowledge gaps and clusters.";
@@ -71,25 +70,4 @@ class VisualizeKnowledge extends PiTool {
       throw new Error(`Visualization failed: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
-}
-
-export function registerGraphTools(pi: ExtensionAPI, manager: IMemoryBehavior) {
-  const traverse = new TraverseKnowledge(manager);
-  const visualize = new VisualizeKnowledge(manager);
-
-  pi.registerTool({
-    name: traverse.name,
-    label: traverse.label,
-    description: traverse.description,
-    parameters: traverse.parameters,
-    execute: (id: string, args: any) => traverse.execute(id, args)
-  });
-
-  pi.registerTool({
-    name: visualize.name,
-    label: visualize.label,
-    description: visualize.description,
-    parameters: visualize.parameters,
-    execute: (id: string, args: any) => visualize.execute(id, args)
-  });
 }

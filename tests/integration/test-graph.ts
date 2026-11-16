@@ -1,11 +1,11 @@
-import { FileSystemStoreMemory } from "../../dist/infrastructure/fs-memory.js";
-import { MemoryManager } from "../../dist/behaviour/memory-manager.js";
+import { FileSystemMemory } from "../../dist/infrastructure/fs-memory.js";
+import { MemoryManager } from "../../dist/application/memory-manager.js";
 import assert from "assert";
 
 async function runTests() {
   console.log("🚀 Starting Knowledge Graph Test Suite...\n");
 
-  const store = new FileSystemStoreMemory();
+  const store = new FileSystemMemory();
   const manager = new MemoryManager(store);
 
   try {
